@@ -54,3 +54,18 @@ Edit line 18 in kafka-console-consumer.sh
 if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
     export KAFKA_HEAP_OPTS="-Xmx512M -XX:+UnlockExperimentalVMOptions"
 fi
+
+Step 6: Import/export your data as streams of events with Kafka Connect
+
+bin/connect-standalone.sh config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+Error: VM option 'UseG1GC' is experimental and must be enabled via -XX:+UnlockExperimentalVMOptions.
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+
+FIX: 
+Edit line 30 in connect-standalone.sh
+
+if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
+  export KAFKA_HEAP_OPTS="-Xms256M -Xmx2G -XX:+UnlockExperimentalVMOptions"
+fi
+
