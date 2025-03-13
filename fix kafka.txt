@@ -54,4 +54,3 @@ Edit line 18 in kafka-console-consumer.sh
 if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
     export KAFKA_HEAP_OPTS="-Xmx512M -XX:+UnlockExperimentalVMOptions"
 fi
-
